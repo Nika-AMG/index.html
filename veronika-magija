@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Вероніка — нічна магія і авто</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(ellipse at bottom, #0d0d2b 0%, #000 100%);
+      color: #e0e0ff;
+      overflow: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #bb86fc;
+      text-shadow: 0 0 15px #bb86fc;
+    }
+
+    p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+
+    .section {
+      text-align: center;
+      margin: 60px auto;
+      max-width: 700px;
+    }
+
+    .magic-btn {
+      background: linear-gradient(45deg, #bb86fc, #3700b3);
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #bb86fc;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .magic-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #ff80ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    /* Зорі */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <header>
+    <h1>Вероніка — нічна магія й авто</h1>
+    <p>Мене звати Вероніка. Я люблю ніч, небо, зорі та... авто!  
+    Магія — це не лише фентезі, це ще й швидкість, звук двигуна і блиск фар у темряві.</p>
+  </header>
+
+  <div class="section">
+    <h2>Мої інтереси</h2>
+    <p>🌌 Нічне небо<br>🚗 Автомобілі<br>🔮 Магія та фентезі<br>🎶 Музика у навушниках у темряві</p>
+    <button class="magic-btn" onclick="showMagic()">Натисни для магії</button>
+  </div>
+
+  <footer>
+    &copy; 2025 Вероніка | Фентезійний світ авто і зір
+  </footer>
+
+  <script>
+    // Зоряне небо
+    const starField = document.getElementById('stars');
+    for (let i = 0; i < 200; i++) {
+      let star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      starField.appendChild(star);
+    }
+
+    // Магічний ефект на кнопку
+    function showMagic() {
+      const colors = ['#ff80ff', '#80d8ff', '#ffe57f', '#c5e1a5'];
+      const spark = document.createElement('div');
+      spark.style.position = 'fixed';
+      spark.style.width = '100px';
+      spark.style.height = '100px';
+      spark.style.borderRadius = '50%';
+      spark.style.left = `${Math.random() * window.innerWidth}px`;
+      spark.style.top = `${Math.random() * window.innerHeight}px`;
+      spark.style.background = colors[Math.floor(Math.random() * colors.length)];
+      spark.style.boxShadow = '0 0 30px white';
+      spark.style.opacity = 0.6;
+      spark.style.transition = 'all 1s ease-out';
+      document.body.appendChild(spark);
+      setTimeout(() => {
+        spark.style.opacity = 0;
+        spark.style.transform = 'scale(2)';
+      }, 100);
+      setTimeout(() => document.body.removeChild(spark), 1500);
+    }
+  </script>
+</body>
+</html>
